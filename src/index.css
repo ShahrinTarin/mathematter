@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-.allura {
-  font-family: "Allura", cursive;
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+.pinyon-script-regular {
+  font-family: "Pinyon Script", cursive;
 }

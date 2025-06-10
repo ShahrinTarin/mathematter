@@ -38,7 +38,7 @@ const Navbar = () => {
       }`} to='/wishlist'>Wishlist</NavLink></li>
   </>
   return (
-    <div className="navbar w-11/12 mx-auto">
+    <div className="navbar w-11/12 mx-auto p-0">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -49,11 +49,11 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             {links}
             <li>{
-          !user ? <div className='md:hidden flex space-x-3'><NavLink to='/login' className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+          !user ? <div className='md:hidden flex space-x-3'><NavLink to='/login' className=" rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
             <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
             <span className="relative">Login</span>
           </NavLink>
-            <NavLink to='/register' className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+            <NavLink to='/register' className=" rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
               <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
               <span className="relative">Register</span>
             </NavLink></div> : <div className='md:hidden flex space-x-5'>
@@ -62,14 +62,14 @@ const Navbar = () => {
                 <img src={user?.photoURL} />
               </div>
             </div>
-            <NavLink onClick={handleLogOut} className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+            <NavLink onClick={handleLogOut} className=" rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
               <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
               <span className="relative">Logout</span>
             </NavLink></div>
         }</li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl allura">MathMatter</a>
+        <a className="text-3xl font-semibold pinyon-script-regular flex justify-center items-center gap-1"><img className='h-8 w-10' src="/public/svg.svg" alt="" /><div>Math<span className='text-[#1b9c85]'>Matter</span></div></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -78,11 +78,11 @@ const Navbar = () => {
       </div>
       <div className="navbar-end ">
         {
-          !user ? <div className='hidden md:flex space-x-3'><NavLink to='/login' className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+          !user ? <div className='hidden md:flex space-x-3'><NavLink to='/login' className="rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
             <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
             <span className="relative">Login</span>
           </NavLink>
-            <NavLink to='/register' className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+            <NavLink to='/register' className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
               <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
               <span className="relative">Register</span>
             </NavLink></div> : <div className='hidden md:flex space-x-5'>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 <img src={user?.photoURL} />
               </div>
             </div>
-            <NavLink onClick={handleLogOut} className="relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+            <NavLink onClick={handleLogOut} className=" rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] relative hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
               <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
               <span className="relative">Logout</span>
             </NavLink></div>
