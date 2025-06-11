@@ -2,7 +2,7 @@ import React from 'react';
 
 const FeaturedBlogs = () => {
     return (
-        <div>
+        <div className='min-h-[calc(100vh-64px)]'>
             featuredblogs
         </div>
     );

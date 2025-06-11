@@ -3,7 +3,7 @@ import Banner from '../Component/Header/Banner';
 
 const Home = () => {
     return (
-        <div className=''>
+        <div className='min-h-[calc(100vh-64px)]'>
             <Banner></Banner>
         </div>
     );
