@@ -16,6 +16,8 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
+        loader: () => fetch('http://localhost:3000/recentblogs'),
+        hydrateFallbackElement:<p>loading..</p>,
         Component:Home,
 
       },
@@ -49,7 +51,7 @@ const router = createBrowserRouter([
 
       },
         {
-       path:'/wishlist' ,
+       path:'/wishlist/:email',
       element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
 
       }

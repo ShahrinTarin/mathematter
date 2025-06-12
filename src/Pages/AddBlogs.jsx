@@ -41,7 +41,7 @@ const { user } = use(AuthContext);
             .then(data => {
                 if (data.insertedId) {
                     Swal.fire({
-                        title: "Blog added Successflly!",
+                        title: "Blog added Successfully!",
                         icon: "success",
                         draggable: true,
                         timer: 1500
