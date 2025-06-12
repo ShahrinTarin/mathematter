@@ -25,7 +25,8 @@ const { user } = use(AuthContext);
             ...Object.fromEntries(formData.entries()),
             userId: user?.uid || null,
             email: user?.email || null,
-            createdAt: bdTime
+            createdAt: bdTime,
+            photourl:user?.photoURL || null
         };
 
 

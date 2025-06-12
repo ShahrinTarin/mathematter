@@ -7,7 +7,11 @@ const Wishlist = () => {
     const { user } = use(AuthContext)
     const [wishlists, setwishlists] = useState([])
  useEffect(() => {
-   
+    if (!user) {
+    alert("Please log in first");
+    return;
+  }
+
     axios(`http://localhost:3000/wishlist/${user?.email}`)
       .then(data => {
         console.log(data?.data)
