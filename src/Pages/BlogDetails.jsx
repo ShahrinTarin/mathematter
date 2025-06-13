@@ -122,7 +122,7 @@ const BlogDetails = () => {
                     </NavLink></div> : ''}
                 </div>
             </div>
-
+            <h1 className='text-3xl font-semibold mb-3 text-gray-700'>Comments</h1>
             <div className='lg:w-1/2 w-full bg-base-200 py-12 rounded-lg shadow-2xl px-7'>
 
                 {
@@ -146,15 +146,16 @@ const BlogDetails = () => {
                         </form></div>
                 }
 
-                <div>
-                    {comment.map(singcomment => <div key={singcomment._id} className="card rounded-md mt-4 w-full bg-base-100 card-xs  shadow-sm">
-                        <div className="flex items-center pl-3 gap-3">
+                <div className='mt-5'>
+                    <p className='text-xs text-[#1b9c85] mb-0'>{comment.length} People Commented on this Blog</p>
+                    {comment.map(singcomment => <div key={singcomment._id} className="py-3 card rounded-md mt-4 w-full bg-base-100 card-xs  shadow-sm">
+                        <div className="flex  items-center pl-3 gap-3">
                             <div className="avatar">
                                 <div className="ring-[#1b9c85] ring-offset-base-100 w-10 h-10 rounded-full ring-2 ring-offset-2">
                                     <img src={singcomment.userphoto} />
                                 </div>
                             </div>
-                            <div className="card-body">
+                            <div className="card-body overflow-auto">
                                 <h2 className="card-title">{singcomment.userName}</h2>
                                 <p>{singcomment.comment}</p>
                             </div>

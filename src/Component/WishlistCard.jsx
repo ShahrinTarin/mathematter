@@ -1,31 +1,50 @@
-import React from 'react';
 import { NavLink } from 'react-router';
 import styled from 'styled-components';
 
-const WishlistCard = ({wishlist}) => {
-    return (
-        <div>
-            <StyledWrapper>
-                <div className="card">
-                    <img className="image" src={wishlist.image} alt="" />
-                    <div className="content">
-                        <a href="#">
-                            <span className="title">
-                               {wishlist.title}
-                            </span>
-                        </a>
-                        <p className="desc">
-                          {wishlist.short_description}
-                        </p>
-                        <NavLink to={`/blogdetails/${wishlist?._id}`} className="action relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c8496] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-                    <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                    <span className="relative">Blog Details</span>
-                </NavLink>
-                    </div>
-                </div>
-            </StyledWrapper>
+const WishlistCard = ({ wishlist, handleDelete, isDeleting }) => {
+
+  return (
+    <div>
+      <StyledWrapper>
+        <div className="card">
+          <img className="image" src={wishlist.image} alt="" />
+          <div className="content">
+            <a href="#">
+              <span className="title">
+                {wishlist.title}
+              </span>
+            </a>
+            <p className="desc">
+              {wishlist.short_description}
+            </p>
+            <div className='flex flex-wrap gap-5'>
+              <NavLink to={`/blogdetails/${wishlist?.blogId}`} className="action relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c8496] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="relative">Blog Details</span>
+              </NavLink>
+              <button
+                onClick={() => handleDelete(wishlist._id)}
+                className={`
+                                    action relative rounded px-4 py-2 overflow-hidden group
+                                    ${isDeleting
+                    ? 'bg-gray-400 cursor-not-allowed' // Styles when deleting
+                    : 'bg-[#1b9c842a] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400'
+                  }
+                                    transition-all ease-out duration-300
+                                `}
+                disabled={isDeleting}
+              >
+                <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                <span className="relative">
+                  {isDeleting ? 'Removing...' : 'Remove Wishlist'}
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-    );
+      </StyledWrapper>
+    </div>
+  );
 };
 
 const StyledWrapper = styled.div`

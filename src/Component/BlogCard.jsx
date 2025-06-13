@@ -65,7 +65,7 @@ const BlogCard = ({ blog }) => {
                 </NavLink>
                 <NavLink to={`/wishlist/${user?.email}`} onClick={handleWishlist} className="relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c842a] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
                     <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                    <span className="relative">Wishlist</span>
+                    <span className="relative">Add Wishlist</span>
                 </NavLink>
             </div>
         </div>

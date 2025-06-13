@@ -27,7 +27,7 @@ const AllBlogs = () => {
                                 <path d="m21 21-4.3-4.3"></path>
                             </g>
                         </svg>
-                        <input onChange={(e) => setSearchTitle(e.target.value)} type="search" className="grow" placeholder="Search" />
+                        <input onChange={(e) => setSearchTitle(e.target.value)} type="search" className="grow" placeholder="Search by Title" />
                         <kbd className="kbd kbd-sm">⌘</kbd>
                         <kbd className="kbd kbd-sm">K</kbd>
                     </label>

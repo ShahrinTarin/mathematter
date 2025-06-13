@@ -10,56 +10,60 @@ import Register from "../Pages/Register";
 import FeaturedBlogs from "../Pages/FeaturedBlogs";
 import BlogDetails from "../Pages/BlogDetails";
 import UpdateBlog from "../Pages/UpdateBlog";
+import Loader from "../Component/Loader";
 const router = createBrowserRouter([
   {
     path: '/',
-    Component:RootLayOut,
-    children:[
+    Component: RootLayOut,
+    children: [
       {
-        index:true,
+        index: true,
         loader: () => fetch('http://localhost:3000/recentblogs'),
-        hydrateFallbackElement:<p>loading..</p>,
-        Component:Home,
+         hydrateFallbackElement: <Loader></Loader>,
+        Component: Home,
 
       },
-        {
-       path:'/allblogs' ,
-        Component:AllBlogs,
+      {
+        path: '/allblogs',
+        Component: AllBlogs,
 
       },
-        {
-       path:'/addblog' ,
-       element:<PrivateRoute><AddBlogs></AddBlogs></PrivateRoute>,
+      {
+        path: '/addblog',
+        element: <PrivateRoute><AddBlogs></AddBlogs></PrivateRoute>,
 
       },
-        {
-       path:'/blogdetails/:id' ,
-       loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
-       element:<PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
+      {
+        path: '/blogdetails/:id',
+         hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
+        element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
 
       },
-        {
-       path:'/updateblog/:id',
-       loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
-       element:<PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+      {
+        path: '/updateblog/:id',
+         hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
+        element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
       },
-       {
+      {
         path: '/login',
         Component: Login,
       },
-       {
+      {
         path: '/register',
         Component: Register,
       },
-        {
-       path:'/featuredblogs' ,
-        Component:FeaturedBlogs,
+      {
+        path: '/featuredblogs',
+        Component: FeaturedBlogs,
 
       },
-        {
-       path:'/wishlist/:email',
-     loader: ({ params }) => fetch(`http://localhost:3000/wishlist/${params.email}`),
-      element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
+      {
+        path: '/wishlist/:email',
+         hydrateFallbackElement: <Loader></Loader>,
+        loader: ({ params }) => fetch(`http://localhost:3000/wishlist/${params.email}`),
+        element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
 
       }
     ]
