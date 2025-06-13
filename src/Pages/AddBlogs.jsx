@@ -56,7 +56,7 @@ const { user } = use(AuthContext);
             <div className='py-12 w-11/12 mx-auto'>
                 <div className='mb-8 text-center space-y-4'>
                     <h1 className="text-5xl font-medium mb-5 text-gray-700">Add Your Blog</h1>
-                    {/* <p className='font font-light text-[12px]'>Share your Recipe .</p> */}
+                   
                 </div>
                 <form onSubmit={handleAddBlog} className='bg-transparent rounded-2xl shadow-2xl  p-8 lg:w-6/12 mx-auto'>
                     <div className=''>
