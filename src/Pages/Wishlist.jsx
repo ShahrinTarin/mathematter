@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import WishlistCard from '../Component/WishlistCard';
 
 
 const Wishlist = () => {
@@ -26,11 +27,15 @@ const Wishlist = () => {
                 console.log(err)
             })
     }, [user])
+    
     return (
-        <div className='min-h-[calc(100vh-64px)] w-11/12 mx-auto'>
+        <div className='min-h-[calc(100vh-64px)] py-10 w-11/12 mx-auto'>
+            <h1 className='text-4xl font-medium mb-10 text-gray-700 text-center'>Your Wishlist</h1>
+            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
             {
-                wishlists.map(wishlist => <p>oijhgg</p>)
+                wishlists.map(wishlist => <WishlistCard key={wishlist._id} wishlist={wishlist}></WishlistCard>)
             }
+        </div>
         </div>
     );
 };

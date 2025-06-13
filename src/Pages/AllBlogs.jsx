@@ -13,7 +13,7 @@ const AllBlogs = () => {
     return (
         <div className=' min-h-[calc(100vh-64px)]'>
             <div>
-                <div className='lg:w-9/12 pt-12 w-11/12 px-10  mx-auto space-y-4 '>
+                <div className='lg:w-9/12 pt-12 w-11/12 px-10 mx-auto space-y-4 '>
                     <label className="input w-full">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <g

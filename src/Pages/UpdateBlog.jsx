@@ -13,6 +13,7 @@ const UpdateBlog = () => {
         const updatedBlog = Object.fromEntries(formData.entries())
         axios.put(`http://localhost:3000/blogs/${newblog._id}`, updatedBlog)
             .then(data => {
+                setnewblog(updatedBlog)
                 if (data.data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Blog Updated Successfully!",

@@ -58,6 +58,7 @@ const router = createBrowserRouter([
       },
         {
        path:'/wishlist/:email',
+     loader: ({ params }) => fetch(`http://localhost:3000/wishlist/${params.email}`),
       element:<PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
 
       }
