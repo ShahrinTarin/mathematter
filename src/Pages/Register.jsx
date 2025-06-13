@@ -1,14 +1,14 @@
 import React, { use, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
-
 import Swal from 'sweetalert2'
 import { FaEye } from 'react-icons/fa6';
 import { FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const Register = () => {
-    const { createUser, setUser, googleLogIn } = use(AuthContext)
+    const { createUser, setUser, googleLogIn,updateUser } = use(AuthContext)
 
 
     const [error, setError] = useState('')
@@ -76,8 +76,18 @@ const Register = () => {
 
         createUser(email, password)
             .then((result) => {
-                const user=result.user
-                setUser({ ...user, displayName: name, photoURL: photo })
+                const user = result.user
+                updateUser({ displayName: name, photoURL: photo })
+                    .then(() => {
+
+                        setUser({ ...user, displayName: name, photoURL: photo })
+
+                    })
+                    .catch((error) => {
+                        setError(error)
+                        setUser(user)
+                    });
+
                 Swal.fire({
                     position: "center",
                     icon: "success",
