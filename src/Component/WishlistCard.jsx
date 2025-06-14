@@ -27,7 +27,7 @@ const WishlistCard = ({ wishlist, handleDelete, isDeleting }) => {
                 className={`
                                     action relative rounded px-4 py-2 overflow-hidden group
                                     ${isDeleting
-                    ? 'bg-gray-400 cursor-not-allowed' // Styles when deleting
+                    ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-[#1b9c842a] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400'
                   }
                                     transition-all ease-out duration-300

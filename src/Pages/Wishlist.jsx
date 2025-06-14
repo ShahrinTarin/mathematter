@@ -52,12 +52,9 @@ const Wishlist = () => {
                 if (result.isConfirmed) {
                     setDeletingItemId(_id);
                     setwishlists(prevWishlists => prevWishlists.filter(item => item._id !== _id));
-                    fetch(`http://localhost:3000/wishlist/${_id}`, {
-                        method: 'DELETE',
-                    })
-                        .then(res => res.json())
+                   axios.delete(`http://localhost:3000/wishlist/${_id}`)
                         .then(data => {
-                            if (data.deletedCount) {
+                            if (data.data.deletedCount) {
                                 Swal.fire({
                                     title: "Deleted!",
                                     text: "Blog has been deleted from Your Wishlist.",

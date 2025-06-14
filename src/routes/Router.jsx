@@ -11,15 +11,17 @@ import FeaturedBlogs from "../Pages/FeaturedBlogs";
 import BlogDetails from "../Pages/BlogDetails";
 import UpdateBlog from "../Pages/UpdateBlog";
 import Loader from "../Component/Loader";
+import ErrorPage from "../Pages/ErrorPage";
 const router = createBrowserRouter([
   {
     path: '/',
     Component: RootLayOut,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
         loader: () => fetch('http://localhost:3000/recentblogs'),
-         hydrateFallbackElement: <Loader></Loader>,
+        hydrateFallbackElement: <Loader></Loader>,
         Component: Home,
 
       },
@@ -35,15 +37,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/blogdetails/:id',
-         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
 
       },
       {
         path: '/updateblog/:id',
-         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
       },
       {
@@ -61,8 +63,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/wishlist/:email',
-         hydrateFallbackElement: <Loader></Loader>,
         loader: ({ params }) => fetch(`http://localhost:3000/wishlist/${params.email}`),
+        hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
 
       }

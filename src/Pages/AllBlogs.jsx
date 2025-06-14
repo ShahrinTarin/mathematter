@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import BlogCard from '../Component/BlogCard';
+import { AuthContext } from '../Provider/AuthProvider';
+import Loader from '../Component/Loader';
 
 const AllBlogs = () => {
+    const {loading}=use(AuthContext)
     const [initialBlogs, setInitialBlogs] = useState([])
     const [search, setSearch] = useState('')
     const [searchTitle, setSearchTitle] = useState('')
@@ -10,6 +13,11 @@ const AllBlogs = () => {
             .then(res => res.json())
             .then(data => setInitialBlogs(data))
     }, [search,searchTitle])
+
+    if ( loading) {
+        return <Loader></Loader>
+    }
+
     return (
         <div className=' min-h-[calc(100vh-64px)]'>
             <div>

@@ -1,15 +1,17 @@
 import React, { use } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
+import Loader from '../Component/Loader';
+import axios from 'axios';
 
 const AddBlogs = () => {
-const { user } = use(AuthContext);
+    const { user, loading } = use(AuthContext);
     const handleAddBlog = (e) => {
         e.preventDefault()
 
         const form = e.target
         const formData = new FormData(form);
-
+        const longDescriptionLength = e.target.long_description.value
         const bdTime = new Date().toLocaleString('en-GB', {
             timeZone: 'Asia/Dhaka',
             day: '2-digit',
@@ -23,24 +25,17 @@ const { user } = use(AuthContext);
 
         const newBlog = {
             ...Object.fromEntries(formData.entries()),
+            longDescriptionLength: longDescriptionLength.length,
             userId: user?.uid || null,
             email: user?.email || null,
             createdAt: bdTime,
-            photourl:user?.photoURL || null
         };
 
 
         // send recipe data to the db 
-        fetch('http://localhost:3000/blogs', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newBlog)
-        })
-            .then(res => res.json())
+        axios.post('http://localhost:3000/blogs',newBlog)
             .then(data => {
-                if (data.insertedId) {
+                if (data.data.insertedId) {
                     Swal.fire({
                         title: "Blog added Successfully!",
                         icon: "success",
@@ -51,12 +46,15 @@ const { user } = use(AuthContext);
             })
         form.reset()
     }
+    if (loading) {
+        return <Loader></Loader>
+    }
     return (
         <div className='min-h-[calc(100vh-64px)]'>
             <div className='py-12 w-11/12 mx-auto'>
                 <div className='mb-8 text-center space-y-4'>
                     <h1 className="text-5xl font-medium mb-5 text-gray-700">Add Your Blog</h1>
-                   
+
                 </div>
                 <form onSubmit={handleAddBlog} className='bg-transparent rounded-2xl shadow-2xl  p-8 lg:w-6/12 mx-auto'>
                     <div className=''>
