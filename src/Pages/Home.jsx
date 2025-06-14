@@ -10,8 +10,7 @@ import Mission from '../Component/Mission';
 
 
 const Home = () => {
-    const recentblogs = useLoaderData()
-    
+    const recentblogs = useLoaderData() 
     return (
         <div className='min-h-[calc(100vh-64px)] bg-[#EDF6EE]'>
             <Banner></Banner>

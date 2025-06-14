@@ -18,7 +18,7 @@ const BlogDetails = () => {
             return;
         }
 
-        axios(`http://localhost:3000/comment/${blog._id}`)
+        axios(`https://assignment-11-server-two-drab.vercel.app/comment/${blog._id}`)
             .then(data => {
                 setcomment(data?.data)
             })
@@ -38,7 +38,7 @@ const BlogDetails = () => {
             userName: user?.displayName,
             userphoto: user?.photoURL,
         }
-        axios.post(`http://localhost:3000/comment/${blog._id}`, comment)
+        axios.post(`https://assignment-11-server-two-drab.vercel.app/comment/${blog._id}`, comment)
             .then(data => {
                 if (!user) {
                     Swal.fire({

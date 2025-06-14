@@ -14,7 +14,7 @@ const BlogCard = ({ blog }) => {
             blogId: blog._id,
             userEmail: user?.email
         }
-        axios.post(`http://localhost:3000/wishlist/${newblog._id}`, wishlist)
+        axios.post(`https://assignment-11-server-two-drab.vercel.app/wishlist/${newblog._id}`, wishlist)
             .then(data => {
                 if (!user) {
                     Swal.fire({
