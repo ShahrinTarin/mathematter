@@ -20,7 +20,7 @@ const BlogTable = () => {
     const columns = useMemo(() => [
         {
             accessorKey: 'title',
-            header: 'Title',
+            header: 'Blog Title',
             cell: info => (
                 <div className="font-medium text-[#1b9c85] hover:underline">
                     {info.getValue()}
@@ -29,7 +29,7 @@ const BlogTable = () => {
         },
         {
             accessorKey: 'category',
-            header: 'Category',
+            header: 'Blog Category',
             cell: info => (
                 <span className="px-2 py-1 bg-[#EDF6EE] rounded-md text-sm capitalize">
                     {info.getValue()}
@@ -38,7 +38,7 @@ const BlogTable = () => {
         },
         {
             accessorKey: 'short_description',
-            header: 'Short Description',
+            header: 'Blog Short Description',
             cell: info => <div>{info.getValue()}</div>,
         },
         {

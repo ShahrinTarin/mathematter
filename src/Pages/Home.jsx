@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { useLoaderData } from 'react-router';
 import RecentCardContainer from '../Component/RecentCardContainer';
 import Newsletter from '../Component/Newsletter';
+import Mission from '../Component/Mission';
 
 
 
@@ -22,6 +23,7 @@ const Home = () => {
                 </div>
                 <RecentCardContainer  recentblogs={recentblogs} ></RecentCardContainer>
             </div>
+            <Mission></Mission>
            <Newsletter></Newsletter> 
         </div>
     );

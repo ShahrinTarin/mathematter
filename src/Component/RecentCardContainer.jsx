@@ -11,7 +11,7 @@ const RecentCardContainer = ({recentblogs}) => {
                     recentblogs?.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
                 }
             </div>
-              <div className='text-center pb-10'>
+              <div className='text-center pb-20'>
                 <Link to='/allblogs' className=" cursor-pointer px-5 py-2.5 lg:mt-5 relative rounded group text-white font-medium inline-block">
                                     <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-gray-600 to-[#1b9c85]"></span>
                                     <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-gray-600 to-[#1b9c85]"></span>

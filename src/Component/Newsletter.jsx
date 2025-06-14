@@ -22,7 +22,7 @@ const Newsletter = () => {
             <div>
                 <div className='grid md:grid-cols-2 lg:grid-cols-4 h-[376px] lg:px-20 pb-12  relative top-40 '>
                     <div>
-                        <img className='w-full h-[376px] object-cover rounded-2xl border-2 border-[#EDF6EE]' src="https://i.ibb.co/8LG9xNND/old-wooden-abacus-blackwhite-colors-600nw-252355696.jpg" alt="fire photo" />
+                        <img className='w-full h-[376px] object-cover rounded-2xl border-2 border-[#EDF6EE]' src="https://i.ibb.co/k6P0NXcw/pngtree-abacus-black-stone-image-2649666.jpg" alt="fire photo" />
                     </div>
                     <div className='hidden md:flex'>
                         <img className='w-full object-cover rounded-2xl border-2 border-[#EDF6EE]' src="https://i.ibb.co/VKdBGYZ/360-F-99525470-x-Gg-YJDvj-POh4s-Vz-Op-YJPgz-UMK6-J7-Cbb0.jpg" alt="Physics" />
