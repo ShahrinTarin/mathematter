@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router';
 import styled from 'styled-components';
-
 const WishlistCard = ({ wishlist, handleDelete, isDeleting }) => {
 
   return (
@@ -9,11 +8,12 @@ const WishlistCard = ({ wishlist, handleDelete, isDeleting }) => {
         <div className="card">
           <img className="image" src={wishlist.image} alt="" />
           <div className="content">
-            <a href="#">
-              <span className="title">
+              <div  className="title flex justify-between">
+                <span>
                 {wishlist.title}
               </span>
-            </a>
+              <p className='badge badge-accent badge-outline'>{wishlist.category}</p>
+              </div>
             <p className="desc">
               {wishlist.short_description}
             </p>

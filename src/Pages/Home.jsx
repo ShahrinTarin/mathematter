@@ -4,6 +4,7 @@ import BlogCard from '../Component/BlogCard';
 import { motion } from "motion/react";
 import { useLoaderData } from 'react-router';
 import RecentCardContainer from '../Component/RecentCardContainer';
+import Newsletter from '../Component/Newsletter';
 
 
 
@@ -21,6 +22,7 @@ const Home = () => {
                 </div>
                 <RecentCardContainer  recentblogs={recentblogs} ></RecentCardContainer>
             </div>
+           <Newsletter></Newsletter> 
         </div>
     );
 };

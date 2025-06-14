@@ -1,9 +1,10 @@
 import React from 'react';
+import BlogTable from '../Component/BlogTable';
 
 const FeaturedBlogs = () => {
     return (
         <div className='min-h-[calc(100vh-64px)]'>
-            featuredblogs
+            <BlogTable></BlogTable>
         </div>
     );
 };

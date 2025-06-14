@@ -32,7 +32,7 @@ const Wishlist = () => {
                     setLoadingWishlist(false);
                 })
                 .catch(err => {
-                    console.error("Error fetching wishlist:", err);
+                    console.log(err);
                     setLoadingWishlist(false);
                 });
         }
@@ -52,7 +52,7 @@ const Wishlist = () => {
                 if (result.isConfirmed) {
                     setDeletingItemId(_id);
                     setwishlists(prevWishlists => prevWishlists.filter(item => item._id !== _id));
-                   axios.delete(`http://localhost:3000/wishlist/${_id}`)
+                    axios.delete(`http://localhost:3000/wishlist/${_id}`)
                         .then(data => {
                             if (data.data.deletedCount) {
                                 Swal.fire({

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { Zoom } from 'react-awesome-reveal';
 const BlogCard = ({ blog }) => {
     const [newblog, setnewblog] = useState(blog)
     const { user } = use(AuthContext)
@@ -39,11 +40,12 @@ const BlogCard = ({ blog }) => {
             })
     }
     return (
+      <Zoom delay={200}>
         <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
             <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
                 <img className='h-full w-full' src={newblog.image} alt="" />
                 <StyledWrapper>
-                    <div className="badge left-0.5 z-10 relative -top-40" href="#">
+                    <div className="badge left-0.5 z-10 relative -top-40" >
                         {newblog.category}
                         <span />
                     </div>
@@ -69,6 +71,7 @@ const BlogCard = ({ blog }) => {
                 </NavLink>
             </div>
         </div>
+        </Zoom>
     );
 };
 
