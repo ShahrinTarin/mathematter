@@ -9,7 +9,7 @@ const AllBlogs = () => {
     const [search, setSearch] = useState('')
     const [searchTitle, setSearchTitle] = useState('')
     useEffect(() => {
-        fetch(`http://localhost:3000/blogs?category=${search}&title=${searchTitle}`)
+        fetch(`https://assignment-11-server-two-drab.vercel.app/blogs?category=${search}&title=${searchTitle}`)
             .then(res => res.json())
             .then(data => setInitialBlogs(data))
     }, [search,searchTitle])

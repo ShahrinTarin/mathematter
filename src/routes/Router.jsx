@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/recentblogs'),
+        loader: () => fetch('https://assignment-11-server-two-drab.vercel.app/recentblogs'),
         hydrateFallbackElement: <Loader></Loader>,
         Component: Home,
 
@@ -37,14 +37,14 @@ const router = createBrowserRouter([
       },
       {
         path: '/blogdetails/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-11-server-two-drab.vercel.app/blogs/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
 
       },
       {
         path: '/updateblog/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
+        loader: ({ params }) => fetch(`https://assignment-11-server-two-drab.vercel.app/blogs/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: <UpdateBlog></UpdateBlog>
       },

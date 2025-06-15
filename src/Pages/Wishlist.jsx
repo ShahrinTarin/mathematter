@@ -55,7 +55,7 @@ const Wishlist = () => {
                 if (result.isConfirmed) {
                     setDeletingItemId(_id);
                     setwishlists(prevWishlists => prevWishlists.filter(item => item._id !== _id));
-                    axios.delete(`http://localhost:3000/wishlist/${_id}`)
+                    axios.delete(`https://assignment-11-server-two-drab.vercel.app/wishlist/${_id}`)
                         .then(data => {
                             if (data.data.deletedCount) {
                                 Swal.fire({
