@@ -77,7 +77,7 @@ const AuthProvider = ({ children }) => {
         setEmail,
     }
     return <AuthContext value={authData}>
-        {children}
+         {!loading && children}
     </AuthContext>
 
 };

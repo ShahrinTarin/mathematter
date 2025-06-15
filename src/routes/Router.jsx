@@ -39,8 +39,7 @@ const router = createBrowserRouter([
         path: '/blogdetails/:id',
         loader: ({ params }) => fetch(`https://assignment-11-server-two-drab.vercel.app/blogs/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
-        element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
-
+        element: <BlogDetails></BlogDetails>
       },
       {
         path: '/updateblog/:id',

@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import BlogCard from '../Component/BlogCard';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loader from '../Component/Loader';
+import axios from 'axios';
 
 const AllBlogs = () => {
     const {loading}=use(AuthContext)
@@ -9,9 +10,8 @@ const AllBlogs = () => {
     const [search, setSearch] = useState('')
     const [searchTitle, setSearchTitle] = useState('')
     useEffect(() => {
-        fetch(`https://assignment-11-server-two-drab.vercel.app/blogs?category=${search}&title=${searchTitle}`)
-            .then(res => res.json())
-            .then(data => setInitialBlogs(data))
+        axios(`https://assignment-11-server-two-drab.vercel.app/blogs?category=${search}&title=${searchTitle}`)
+            .then(data => setInitialBlogs(data.data))
     }, [search,searchTitle])
 
     if ( loading) {

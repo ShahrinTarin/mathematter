@@ -11,7 +11,7 @@ const AddBlogs = () => {
         e.preventDefault()
 
         const form = e.target
-        const formData = new FormData(form);
+        const formData = new FormData(form)
         const longDescriptionLength = e.target.long_description.value
         const bdTime = new Date().toLocaleString('en-GB', {
             timeZone: 'Asia/Dhaka',
@@ -26,6 +26,7 @@ const AddBlogs = () => {
 
         const newBlog = {
             ...Object.fromEntries(formData.entries()),
+            wishlist:[],
             longDescriptionLength: longDescriptionLength.length,
             userId: user?.uid || null,
             email: user?.email || null,

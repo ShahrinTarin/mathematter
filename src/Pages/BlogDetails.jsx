@@ -7,14 +7,9 @@ const BlogDetails = () => {
     const { user } = use(AuthContext);
     const blog = useLoaderData()
     const [comment, setcomment] = useState([])
+    
     useEffect(() => {
         if (!user) {
-            Swal.fire({
-                title: "Please Login first",
-                icon: "warning",
-                draggable: true,
-                timer: 1500
-            });
             return;
         }
 
@@ -25,6 +20,8 @@ const BlogDetails = () => {
             .catch(err => {
                 console.log(err)
             })
+
+           
     }, [user, blog._id])
 
     const handlecomments = (e) => {
@@ -133,7 +130,7 @@ const BlogDetails = () => {
                                     <img src={user?.photoURL} />
                                 </div>
                             </div>
-                            <textarea name='comment' placeholder="Write a Comment..." className="textarea w-full textarea-accent"></textarea>
+                            <textarea required name='comment' placeholder="Write a Comment..." className="textarea w-full textarea-accent"></textarea>
                             <div className='text-end'>
                                 <button type='submit' className="cursor-pointer  px-5 py-2.5 lg:mt-5 relative rounded group text-white font-medium inline-block text-center">
                                     <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-gray-600 to-[#1b9c85]"></span>
