@@ -32,7 +32,7 @@ const AddBlogs = () => {
         };
 
 
-        // send recipe data to the db 
+        // send blog data to the db 
         axios.post('https://assignment-11-server-two-drab.vercel.app/blogs',newBlog)
             .then(data => {
                 if (data.data.insertedId) {

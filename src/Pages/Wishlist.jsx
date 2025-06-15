@@ -1,17 +1,20 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-import axios from 'axios';
+
 import Swal from 'sweetalert2';
 import WishlistCard from '../Component/WishlistCard';
 import EmptyPage from './EmptyPage';
 import Loader from '../Component/Loader';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import axios from 'axios';
 
 
 const Wishlist = () => {
     const { user, loading } = use(AuthContext)
-    const [loadingWishlist, setLoadingWishlist] = useState(true);
+    const axiosSecure=useAxiosSecure()
+    const [loadingWishlist, setLoadingWishlist] = useState(true)
     const [wishlists, setwishlists] = useState([])
-    const [deletingItemId, setDeletingItemId] = useState(null);
+    const [deletingItemId, setDeletingItemId] = useState(null)
     useEffect(() => {
         if (!loading) {
             if (!user) {
@@ -26,7 +29,7 @@ const Wishlist = () => {
             }
 
             setLoadingWishlist(true);
-            axios(`https://assignment-11-server-two-drab.vercel.app/wishlist/${user?.email}`)
+            axiosSecure(`/wishlist/${user?.email}`)
                 .then(data => {
                     setwishlists(data?.data);
                     setLoadingWishlist(false);
@@ -36,7 +39,7 @@ const Wishlist = () => {
                     setLoadingWishlist(false);
                 });
         }
-    }, [user, loading])
+    }, [user, loading,axiosSecure])
 
     const handleDelete = (_id) => {
         Swal.fire({

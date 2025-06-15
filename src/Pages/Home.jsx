@@ -6,6 +6,7 @@ import { useLoaderData } from 'react-router';
 import RecentCardContainer from '../Component/RecentCardContainer';
 import Newsletter from '../Component/Newsletter';
 import Mission from '../Component/Mission';
+import ExtraSection from '../Component/ExtraSection';
 
 
 
@@ -22,6 +23,7 @@ const Home = () => {
                 </div>
                 <RecentCardContainer  recentblogs={recentblogs} ></RecentCardContainer>
             </div>
+            <ExtraSection></ExtraSection>
             <Mission></Mission>
            <Newsletter></Newsletter> 
         </div>

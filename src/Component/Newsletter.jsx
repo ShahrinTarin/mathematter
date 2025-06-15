@@ -1,7 +1,6 @@
 import React from 'react';
 import { Slide } from 'react-awesome-reveal';
 import { toast } from 'react-toastify';
-
 const Newsletter = () => {
     const handleSubscribe = () => {
         toast('Thank you for subscribing to our newsletter', {
@@ -36,7 +35,7 @@ const Newsletter = () => {
 
                 </div>
                 <div className='bg-white  md:mx-0 py-12 text-center'>
-                    <h1 className='text-3xl px-4 mb-3 mt-36 lg:mt-48  text-gray-700 font-medium lg:text-5xl'>Let’s learn, explore, and thrive together!
+                    <h1 className='text-3xl px-4 mb-3 mt-36 lg:mt-48  text-gray-700 font-medium lg:text-5xl'>Let’s learn, explore, and thrive together! <br />Subscribe Our Newsletter
                     </h1>
                     <form onSubmit={handleSubscribe} className="join px-3 gap-2 lg:gap-5 md:mt-10 mt:8">
                         <input required type='email' className="input join-item rounded-full bg-transparent backdrop-blur-2xl w-full md:px-8 py-6 md:py-8 textarea-lg md:text-xl" placeholder="Enter Your Email" />
