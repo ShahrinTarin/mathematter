@@ -11,7 +11,7 @@ const UpdateBlog = () => {
         const form = e.target
         const formData = new FormData(form)
         const updatedBlog = Object.fromEntries(formData.entries())
-        axios.put(`https://assignment-11-server-two-drab.vercel.app/blogs/${newblog._id}`, updatedBlog)
+        axios.put(`http://localhost:3000/blogs/${newblog._id}`, updatedBlog)
             .then(data => {
                 setnewblog(updatedBlog)
                 if (data.data.modifiedCount > 0) {

@@ -58,7 +58,7 @@ const BlogTable = () => {
     useEffect(() => {
         const fetchblogs = async () => {
             try {
-                const blogs = await fetch('https://assignment-11-server-two-drab.vercel.app/topblogs');
+                const blogs = await fetch('http://localhost:3000/topblogs');
                 const result = await blogs.json();
                 setData(result);
             } catch (err) {

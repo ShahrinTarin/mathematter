@@ -3,15 +3,17 @@ import { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_URL
+    baseURL: import.meta.env.VITE_API_URL,
+    withCredentials:true
 })
 
 
 const useAxiosSecure = () => {
-    const { logOut } = use(AuthContext)
-    const token = localStorage.getItem('token')
+    const {user, logOut } = use(AuthContext)
     axiosInstance.interceptors.request.use(config => {
-        config.headers.Authorization = `Bearer ${token}`
+         if (user?.accessToken) {
+            config.headers.Authorization = `Bearer ${user.accessToken}`;
+        }
         return config
     })
 

@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('https://assignment-11-server-two-drab.vercel.app/recentblogs'),
+        loader: () => fetch('http://localhost:3000/recentblogs'),
         hydrateFallbackElement: <Loader></Loader>,
         Component: Home,
 
@@ -37,16 +37,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/blogdetails/:id',
-        loader: ({ params }) => fetch(`https://assignment-11-server-two-drab.vercel.app/blogs/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><BlogDetails></BlogDetails></PrivateRoute>,
 
       },
       {
         path: '/updateblog/:id',
-        loader: ({ params }) => fetch(`https://assignment-11-server-two-drab.vercel.app/blogs/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/blogs/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
-        element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+        element: <UpdateBlog></UpdateBlog>
       },
       {
         path: '/login',
@@ -63,8 +63,6 @@ const router = createBrowserRouter([
       },
       {
         path: '/wishlist/:email',
-        loader: ({ params }) => fetch(`https://assignment-11-server-two-drab.vercel.app/wishlist/${params.email}`),
-        hydrateFallbackElement: <Loader></Loader>,
         element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>,
 
       }

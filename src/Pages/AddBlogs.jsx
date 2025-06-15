@@ -2,11 +2,12 @@ import React, { use } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loader from '../Component/Loader';
-import axios from 'axios';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const AddBlogs = () => {
-    const { user, loading } = use(AuthContext);
-    const handleAddBlog = (e) => {
+    const { user, loading } = use(AuthContext)
+     const axiosSecure=useAxiosSecure()
+    const handleAddBlog = async(e) => {
         e.preventDefault()
 
         const form = e.target
@@ -33,18 +34,17 @@ const AddBlogs = () => {
 
 
         // send blog data to the db 
-        axios.post('https://assignment-11-server-two-drab.vercel.app/blogs',newBlog)
-            .then(data => {
-                if (data.data.insertedId) {
-                    Swal.fire({
-                        title: "Blog added Successfully!",
-                        icon: "success",
-                        draggable: true,
-                        timer: 1500
-                    });
-                }
-            })
-        form.reset()
+         const { data } = await axiosSecure.post('/blogs', newBlog)
+            if (data.insertedId) {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Blog added successfully",
+                    icon: "success",
+                    timer: 1500
+                });
+                form.reset();
+            }
+       
     }
     if (loading) {
         return <Loader></Loader>
