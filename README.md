@@ -1,20 +1,26 @@
-# MathMatter
+# 📚🧪MathMatter♾️🌠
 
 ## Purpose
 MathMatter is an interactive web application designed to make learning mathematics engaging, accessible, and intuitive. Whether you're a student strengthening core concepts or a math enthusiast solving advanced problems, MathMatter provides a dynamic platform with practice tools, problem sets, visualizations, and personalized progress tracking. With real-time feedback and a clean UI, it simplifies complex topics and fosters confident learning in a fun, gamified environment.
 
 
 ## Live URL
-(https://stovestories-1a7e6.web.app/)
+(https://mathmatter-by-shahrin-tarin.web.app/)
 
 ## Key Features
-- **Swiper JS Carousel**: A 3D coverflow carousel showcasing the top 6 most-liked recipes with 3 slides visible, centered, and auto-playing for an engaging presentation.
 - **Responsive Design**: A clean, user-friendly layout with sections for a header, and footer.Seamless browsing with React and React Router.
-- **Top 6 Recipes Lists**: Displays the 6 most-liked recipes in a dedicated section.
-- **Like-Based Ranking**: Recipes sorted by likes for easy discovery.
-- **User-Generated Recipes**: Upload recipes with images, preparation times, and categories.
-- **Interactive Recipe Cards**:Like, edit, or delete recipes with real-time updates.
-- **Personalized Collections**: Filter recipes by user ID.
+- **Top Blogs** – Retrieve the top 10 blogs based on the word count of the long description.
+- **Get All Blogs** – Filter blogs by `category` or `title` using query parameters.
+- **Long Description's length Based Ranking**: Blogs sorted by length of long description  for easy discovery.
+- **User-Generated Blogs**: Upload Blogs with images, description, and categories.
+- **Interactive Blog Cards**:comment, edit, or delete Blogs with real-time updates.
+- **Personalized Blog  Collections**: Filter Blogs by Blog's Title.
+- **React-motion**:Motion increase the user experience.
+- **Add Comment** – Post comments on individual blogs.
+- **View Comments** – You can see all comments for a specific blog.
+- **Add to Wishlist** – Add a blog to a user’s wishlist (duplicate prevention included).
+- **Get Wishlist** – View all wishlist items for a specific user (requires JWT verification).
+- **Delete Wishlist Item** – Remove a specific item from the wishlist by ID.
 
 
 ## NPM Packages Used

@@ -7,72 +7,87 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 import { Zoom } from 'react-awesome-reveal';
 const BlogCard = ({ blog }) => {
-  const [newblog, setnewblog] = useState(blog)
-  const { user } = use(AuthContext)
-  const handleWishlist = () => {
-    const wishlist = {
-      blogId: blog._id,
-      userEmail: user?.email
-    }
-    axios.post(`https://assignment-11-server-two-drab.vercel.app/wishlist/${newblog._id}`, wishlist)
-      .then(data => {
-        if (!user) {
-          Swal.fire({
-            title: "Please Login first",
-            icon: "warning",
-            draggable: true,
-            timer: 1500
-          });
-          return;
-        }
-
-        if (data.data.insertedId) {
-          Swal.fire({
-            title: "Blog added to Your Wishlist Successfully!",
-            icon: "success",
-            draggable: true,
-            timer: 1500
-          });
-        }
-        setnewblog(prev => {
-          return { ...prev }
-        })
-      })
+    const [newblog, setnewblog] = useState(blog)
+    const { user } = use(AuthContext)
+    const handleWishlist = () => {
+  if (!user) {
+    Swal.fire({
+      title: "Please Login first",
+      icon: "warning",
+      draggable: true,
+      timer: 1500
+    });
+    return;
   }
-  return (
-    <Zoom delay={200}>
-      <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
-          <img className='h-full w-full' src={newblog.image} alt="" />
-          <StyledWrapper>
-            <div className="badge left-0.5 z-10 relative -top-40" >
-              {newblog.category}
-              <span />
-            </div>
-          </StyledWrapper>
-        </div>
+  
+  const wishlist = {
+    blogId: blog._id,
+    userEmail: user.email
+  }
+  
+  axios.post(`https://assignment-11-server-two-drab.vercel.app/wishlist/${blog._id}`, wishlist)
+    .then(({ data, status }) => {
+      if (data.alreadyExists) {
+        Swal.fire({
+          title: "This blog is already in your wishlist",
+          icon: "info",
+          timer: 1500,
+          draggable: true
+        });
+      } else if (status === 201) {
+        Swal.fire({
+          title: "Blog added to Your Wishlist Successfully!",
+          icon: "success",
+          draggable: true,
+          timer: 1500
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      Swal.fire({
+        title: "Something went wrong",
+        icon: "error",
+        timer: 1500,
+        draggable: true
+      });
+    });
+}
 
-        <div className="p-6">
-          <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-            {newblog.title}
-          </h5>
-          <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-            {newblog.short_description}
-          </p>
+    return (
+      <Zoom delay={200}>
+        <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <div className="relative mx-4 -mt-6 h-40 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600">
+                <img className='h-full w-full' src={newblog.image} alt="" />
+                <StyledWrapper>
+                    <div className="badge left-0.5 z-10 relative -top-40" >
+                        {newblog.category}
+                        <span />
+                    </div>
+                </StyledWrapper>
+            </div>
+
+            <div className="p-6">
+                <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                    {newblog.title}
+                </h5>
+                <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                    {newblog.short_description}
+                </p>
+            </div>
+            <div className="p-6 pt-0 flex justify-between flex-wrap gap-5">
+                <NavLink to={`/blogdetails/${newblog._id}`} className="relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c8496] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                    <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                    <span className="relative">Blog Details</span>
+                </NavLink>
+                <NavLink to={`/wishlist/${user?.email}`} onClick={handleWishlist} className="relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c842a] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
+                    <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                    <span className="relative">Add Wishlist</span>
+                </NavLink>
+            </div>
         </div>
-        <div className="p-6 pt-0 flex justify-between flex-wrap gap-5">
-          <NavLink to={`/blogdetails/${newblog._id}`} className="relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c8496] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-            <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Blog Details</span>
-          </NavLink>
-          <NavLink to={`/wishlist/${user?.email}`} onClick={handleWishlist} className="relative rounded px-4 py-2 overflow-hidden group bg-[#1b9c842a] hover:bg-gradient-to-r hover:from-[#1b9c8444] hover:to-green-400 text-gray-700 hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300">
-            <span className="absolute right-0 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-            <span className="relative">Add Wishlist</span>
-          </NavLink>
-        </div>
-      </div>
-    </Zoom>
-  );
+        </Zoom>
+    );
 };
 
 const StyledWrapper = styled.div`
