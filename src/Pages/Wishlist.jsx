@@ -14,17 +14,17 @@ const Wishlist = () => {
     const [loadingWishlist, setLoadingWishlist] = useState(true)
     const [wishlists, setwishlists] = useState([])
     const [deletingItemId, setDeletingItemId] = useState(null)
+    // useEffect(() => {
+    //     axiosSecure(`/wishlist/${user?.email}`)
+    //         .then(data => {
+    //             setwishlists(data?.data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }, [user,axiosSecure])
     useEffect(() => {
-    axiosSecure(`/wishlist/${user?.email}`)
-      .then(data => {
-        setwishlists(data?.data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }, [user])
-    useEffect(() => {
-        if (!loading) {
+        if (!loading ) {
             if (!user) {
                 Swal.fire({
                     title: "Please Login first",
@@ -47,7 +47,7 @@ const Wishlist = () => {
                     setLoadingWishlist(false);
                 });
         }
-    }, [user, loading, axiosSecure,setLoadingWishlist])
+    }, [user, loading, axiosSecure, setLoadingWishlist])
 
     const handleDelete = (_id) => {
         Swal.fire({

@@ -10,9 +10,9 @@ const axiosInstance = axios.create({
 
 const useAxiosSecure = () => {
     const { user, logOut } = use(AuthContext)
-    axiosInstance.interceptors.request.use(async config => {
+    axiosInstance.interceptors.request.use( config => {
         if (user?.accessToken) {
-            const token = await user.accessToken
+            const token =  user?.accessToken
             config.headers.Authorization = `Bearer ${token}`;
         }
         return config
