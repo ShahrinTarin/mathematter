@@ -37,7 +37,21 @@ const BlogCard = ({ blog }) => {
                 setnewblog(prev => {
                     return { ...prev }
                 })
-            })
+            }).catch((err) => {
+      if (err.response && err.response.status === 409) {
+        Swal.fire({
+          title: "Already in your wishlist!",
+          icon: "error",
+          timer: 1500,
+        });
+      } else {
+        Swal.fire({
+          title: "Something went wrong!",
+          icon: "error",
+          text: err.message,
+        });
+      }
+    });
     }
     return (
       <Zoom delay={200}>

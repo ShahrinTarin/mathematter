@@ -1,17 +1,15 @@
 import React, { use, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
-
 import Swal from 'sweetalert2';
 import WishlistCard from '../Component/WishlistCard';
 import EmptyPage from './EmptyPage';
 import Loader from '../Component/Loader';
 import useAxiosSecure from '../hooks/useAxiosSecure';
-import axios from 'axios';
 
 
 const Wishlist = () => {
     const { user, loading } = use(AuthContext)
-    const axiosSecure=useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
     const [loadingWishlist, setLoadingWishlist] = useState(true)
     const [wishlists, setwishlists] = useState([])
     const [deletingItemId, setDeletingItemId] = useState(null)
@@ -39,7 +37,7 @@ const Wishlist = () => {
                     setLoadingWishlist(false);
                 });
         }
-    }, [user, loading,axiosSecure])
+    }, [user, loading, axiosSecure,setLoadingWishlist])
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -50,27 +48,23 @@ const Wishlist = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        })
-            .then((result) => {
-                if (result.isConfirmed) {
-                    setDeletingItemId(_id);
-                    setwishlists(prevWishlists => prevWishlists.filter(item => item._id !== _id));
-                    axios.delete(`https://assignment-11-server-two-drab.vercel.app/wishlist/${_id}`)
-                        .then(data => {
-                            if (data.data.deletedCount) {
-                                Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Blog has been deleted from Your Wishlist.",
-                                    icon: "success"
-                                });
-                                setwishlists(prevWishlists => prevWishlists.filter(item => item._id !== _id))
-                            }
-
-                        })
-
-                }
-            });
-    }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setDeletingItemId(_id);
+                axiosSecure.delete(`/wishlist/${_id}`)
+                    .then((res) => {
+                        if (res.data.deletedCount > 0) {
+                            setwishlists(prev => prev.filter(item => item._id !== _id));
+                            Swal.fire("Deleted!", "Blog removed from wishlist.", "success");
+                        }
+                    })
+                    .catch((err) => {
+                        console.error("Delete failed:", err.response?.data || err.message);
+                        Swal.fire("Error", "Failed to delete item.", "error");
+                    });
+            }
+        });
+    };
 
     if (loadingWishlist || loading) {
         return <Loader></Loader>;
