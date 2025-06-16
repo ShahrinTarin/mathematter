@@ -14,7 +14,6 @@ const Login = () => {
     const [showPass, setShowPass] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
-    const from = location.state?.from || '/'; 
     const handleGoogleLogIn = () => {
         googleLogIn()
             .then((result) => {
@@ -55,7 +54,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
             });
-            navigate(from, { replace: true });
+            navigate(`${location.state ? location.state : '/'}`)
         } catch (error) {
             Swal.fire({
                 title: "Error",
