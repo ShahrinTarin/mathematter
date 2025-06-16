@@ -79,7 +79,7 @@ const Wishlist = () => {
     return (
         <div className='min-h-[calc(100vh-64px)] py-10 w-11/12 mx-auto'>
             <h1 className='text-4xl font-medium mb-10 text-gray-700 text-center'>Your Wishlist</h1>
-            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+            <div className=' grid grid-cols-1 items-stretch md:grid-cols-2 lg:grid-cols-4 gap-8'>
                 {
                     (wishlists.length === 0) ? <EmptyPage></EmptyPage> : wishlists.map(wishlist => <WishlistCard isDeleting={deletingItemId === wishlist._id} handleDelete={handleDelete} key={wishlist._id} wishlist={wishlist}></WishlistCard>)
                 }

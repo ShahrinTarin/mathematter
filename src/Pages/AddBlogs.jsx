@@ -26,7 +26,6 @@ const AddBlogs = () => {
 
         const newBlog = {
             ...Object.fromEntries(formData.entries()),
-            wishlist:[],
             longDescriptionLength: longDescriptionLength.length,
             userId: user?.uid || null,
             email: user?.email || null,

@@ -8,12 +8,13 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Login = () => {
 
-    const { signIn, setUser, googleLogIn, email, setEmail } = use(AuthContext)
+    const { signIn, setUser, googleLogIn, email, setEmail,setLoading } = use(AuthContext)
 
     const [error, setError] = useState('')
     const [showPass, setShowPass] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
+    const from = location.state?.from || '/'; 
     const handleGoogleLogIn = () => {
         googleLogIn()
             .then((result) => {
@@ -37,33 +38,35 @@ const Login = () => {
             });
     }
 
-    const handleLogIn = (e) => {
+    const handleLogIn = async(e) => {
         e.preventDefault()
         const form = e.target
         const password = form.password.value
         const email = form.email.value
-
-
-        signIn(email, password)
-            .then((result) => {
-                const user = result.user
-                setUser(user)
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "You have been LogIn Successfully",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                navigate(`${location.state ? location.state : '/'}`)
-
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                // const errorMessage = error.message;
-                setError(errorCode)
-
+        setError('')
+         try {
+            setLoading(true);
+            const result = await signIn(email, password);
+            setUser(result.user);
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Logged in successfully",
+                showConfirmButton: false,
+                timer: 1500
             });
+            navigate(from, { replace: true });
+        } catch (error) {
+            Swal.fire({
+                title: "Error",
+                text: "Invalid credentials",
+                icon: "error",
+                timer: 1500
+            });
+            setError(error.code);
+        } finally {
+            setLoading(false);
+        }
 
     }
 
@@ -90,7 +93,7 @@ const Login = () => {
                             id="password"
                             placeholder="Password"
                             className="w-full mb-3 px-4 py-3 cursor-pointer rounded-md border-gray-300 bg-gray-50 text-gray-800 focus:border-violet-600" />
-                        <button onClick={() => setShowPass(!showPass)} className='text-gray-700 absolute  top-9 right-4'>{showPass ? <FaEyeSlash size={16}></FaEyeSlash> : <FaEye size={16}></FaEye>}</button>
+                        <button type='button' onClick={() => setShowPass(!showPass)} className='text-gray-700 absolute  top-9 right-4'>{showPass ? <FaEyeSlash size={16}></FaEyeSlash> : <FaEye size={16}></FaEye>}</button>
 
                     </div>
                     <div className="flex justify-end text-xs text-gray-800">

@@ -8,7 +8,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 
 const Register = () => {
-    const { createUser, setUser, googleLogIn,updateUser } = use(AuthContext)
+    const { createUser, setUser, googleLogIn, updateUser } = use(AuthContext)
 
 
     const [error, setError] = useState('')
@@ -95,20 +95,25 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                  navigate(`${location.state ? location.state : '/'}`)
+                navigate(`${location.state ? location.state : '/'}`)
             })
             .catch((error) => {
-                const errorCode = error.code;
-                // const errorMessage = error.message;
+                const errorCode = error.code
+                Swal.fire({
+                    title: "Ooops!",
+                    text: "Invalid Credentials ",
+                    icon: "warning",
+                    timer: 1500
+                });
                 setError(errorCode)
 
             });
     }
     return (
-      
-           
-           <div className='px-3 flex items-center py-10 justify-center min-h-[calc(100vh-64px)]'>
-             <div className="w-full max-w-xl mx-auto p-8 space-y-3 rounded-xl bg-base-100 text-gray-800 mb-5 shadow-2xl">
+
+
+        <div className='px-3 flex items-center py-10 justify-center min-h-[calc(100vh-64px)]'>
+            <div className="w-full max-w-xl mx-auto p-8 space-y-3 rounded-xl bg-base-100 text-gray-800 mb-5 shadow-2xl">
                 <h1 className="text-2xl font-bold text-center">Register Your Account</h1>
                 <form onSubmit={handleRegister} className="space-y-2">
                     <div className="space-y-1 text-sm">
@@ -157,8 +162,8 @@ const Register = () => {
                     </p>
                 </form>
             </div>
-           </div>
-       
+        </div>
+
     );
 };
 
