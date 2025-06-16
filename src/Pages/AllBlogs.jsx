@@ -13,7 +13,6 @@ const AllBlogs = () => {
         axios(`https://assignment-11-server-two-drab.vercel.app/blogs?category=${search}&title=${searchTitle}`)
             .then(data => setInitialBlogs(data.data))
     }, [search,searchTitle])
-
     if ( loading) {
         return <Loader></Loader>
     }
