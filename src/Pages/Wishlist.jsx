@@ -7,12 +7,22 @@ import Loader from '../Component/Loader';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
 
+
 const Wishlist = () => {
     const { user, loading } = use(AuthContext)
     const axiosSecure = useAxiosSecure()
     const [loadingWishlist, setLoadingWishlist] = useState(true)
     const [wishlists, setwishlists] = useState([])
     const [deletingItemId, setDeletingItemId] = useState(null)
+    useEffect(() => {
+    axiosSecure(`/wishlist/${user?.email}`)
+      .then(data => {
+        setwishlists(data?.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [user])
     useEffect(() => {
         if (!loading) {
             if (!user) {
