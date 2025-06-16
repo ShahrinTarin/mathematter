@@ -20,7 +20,6 @@ const Register = () => {
             .then((result) => {
                 const user = result.user
                 setUser(user)
-                navigate('/')
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -79,9 +78,7 @@ const Register = () => {
                 const user = result.user
                 updateUser({ displayName: name, photoURL: photo })
                     .then(() => {
-
                         setUser({ ...user, displayName: name, photoURL: photo })
-
                     })
                     .catch((error) => {
                         setError(error)
