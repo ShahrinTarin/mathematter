@@ -35,7 +35,7 @@ const Navbar = () => {
       }`} to='/featuredblogs'> Featured Blogs</NavLink></li>
     <li><NavLink className={({ isActive }) =>
       `block px-3 py-2 rounded-md text-base font-medium ${isActive ? 'bg-[#EDF6EE]  text-[#1b9c85] underline transition-all duration-500' : ' text-gray-700 hover:bg-gray-100'
-      }`} to={`/wishlist/${user?.email}`}>Wishlist</NavLink></li>
+      }`} to={`/wishlist`}>Wishlist</NavLink></li>
   </>
   return (
     <div className="navbar w-11/12 mx-auto p-0">
