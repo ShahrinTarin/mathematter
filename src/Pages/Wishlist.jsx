@@ -24,7 +24,7 @@ const Wishlist = () => {
     //         })
     // }, [user,axiosSecure])
     useEffect(() => {
-        if (!loading ) {
+        if (!loading) {
             if (!user) {
                 Swal.fire({
                     title: "Please Login first",
