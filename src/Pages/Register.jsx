@@ -27,7 +27,7 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(`${location.state ? location.state : '/'}`)
+                    navigate(location.state?.from || '/');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -92,7 +92,7 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                navigate(`${location.state ? location.state : '/'}`)
+                   navigate(location.state?.from || '/');
             })
             .catch((error) => {
                 const errorCode = error.code
@@ -104,7 +104,7 @@ const Register = () => {
                 });
                 setError(errorCode)
 
-            });
+            })
     }
     return (
 
