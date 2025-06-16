@@ -10,50 +10,35 @@ const BlogCard = ({ blog }) => {
     const [newblog, setnewblog] = useState(blog)
     const { user } = use(AuthContext)
     const handleWishlist = () => {
-  if (!user) {
-    Swal.fire({
-      title: "Please Login first",
-      icon: "warning",
-      draggable: true,
-      timer: 1500
-    });
-    return;
-  }
-  
-  const wishlist = {
-    blogId: blog._id,
-    userEmail: user.email
-  }
-  
-  axios.post(`https://assignment-11-server-two-drab.vercel.app/wishlist/${blog._id}`, wishlist)
-    .then(({ data, status }) => {
-      if (data.alreadyExists) {
-        Swal.fire({
-          title: "This blog is already in your wishlist",
-          icon: "info",
-          timer: 1500,
-          draggable: true
-        });
-      } else if (status === 201) {
-        Swal.fire({
-          title: "Blog added to Your Wishlist Successfully!",
-          icon: "success",
-          draggable: true,
-          timer: 1500
-        });
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      Swal.fire({
-        title: "Something went wrong",
-        icon: "error",
-        timer: 1500,
-        draggable: true
-      });
-    });
-}
+        const wishlist = {
+            blogId: blog._id,
+            userEmail: user?.email
+        }
+        axios.post(`https://assignment-11-server-two-drab.vercel.app/wishlist/${newblog._id}`, wishlist)
+            .then(data => {
+                if (!user) {
+                    Swal.fire({
+                        title: "Please Login first",
+                        icon: "warning",
+                        draggable: true,
+                        timer: 1500
+                    });
+                    return;
+                }
 
+                if (data.data.insertedId) {
+                    Swal.fire({
+                        title: "Blog added to Your Wishlist Successfully!",
+                        icon: "success",
+                        draggable: true,
+                        timer: 1500
+                    });
+                }
+                setnewblog(prev => {
+                    return { ...prev }
+                })
+            })
+    }
     return (
       <Zoom delay={200}>
         <div className="relative flex  flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
