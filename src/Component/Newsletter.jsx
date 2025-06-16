@@ -2,7 +2,8 @@ import React from 'react';
 import { Slide } from 'react-awesome-reveal';
 import { toast } from 'react-toastify';
 const Newsletter = () => {
-    const handleSubscribe = () => {
+    const handleSubscribe = (e) => {
+        e.preventDefault()
         toast('Thank you for subscribing to our newsletter', {
             position: "top-center",
             autoClose: 5000,
