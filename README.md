@@ -43,8 +43,6 @@ src/
 ├── hooks/           # Custom hooks
 ├── pages/           # Page components
 ├── routes/          # App routing
-├── services/        # API service functions
-├── styles/          # Global styles
 ```
 
 ## 🚀 Setup Instructions
