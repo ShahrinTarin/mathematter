@@ -95,6 +95,9 @@ src/
    ```
    ---
 
+   ## Live URL For Backend
+(https://assignment-10-server-blond-ten.vercel.app/)
+
 ## ⚙️ Tech Stack
 
 | Tech           | Usage                        |
