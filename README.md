@@ -96,7 +96,7 @@ src/
    ---
 
    ## Live URL For Backend
-(https://assignment-10-server-blond-ten.vercel.app/)
+(https://assignment-11-server-two-drab.vercel.app/)
 
 ## ⚙️ Tech Stack
 
