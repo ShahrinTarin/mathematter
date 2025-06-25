@@ -32,3 +32,106 @@ MathMatter is an interactive web application designed to make learning mathemati
 - **Framer Motion**: Adds sleek transitions and UI animations.
 - **styled-components:**: Facilitates reusable, scoped CSS styling for recipe cards and buttons, ensuring maintainable and consistent design (npm install styled-components).
 ---
+
+## 📂 Project Structure
+
+```
+src/
+├── assets/          # Static assets
+├── components/      # Reusable components
+├── contexts/        # Context providers
+├── hooks/           # Custom hooks
+├── pages/           # Page components
+├── routes/          # App routing
+├── services/        # API service functions
+├── styles/          # Global styles
+```
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- MongoDB Atlas account
+- Firebase project with Service Account
+
+### Installation Steps
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd project-directory
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables** Create a `.env` file in root directory with
+   these variables:
+
+   ```
+   PORT=3000
+   DB_USER=your_mongodb_username
+   DB_PASS=your_mongodb_password
+   JWT_SECRET_KEY=your_jwt_secret
+   FB_SERVICE_KEY=your_firebase_service_account_base64
+   ```
+
+4. **Run the server**
+
+   ```bash
+   npm start
+   # or for development
+   npm run dev
+   ```
+
+5. **Test the server** The server should be running at:
+   ```
+   http://localhost:3000
+   ```
+   ---
+
+## ⚙️ Tech Stack
+
+| Tech           | Usage                        |
+|----------------|------------------------------|
+| Node.js        | Backend runtime              |
+| Express.js     | Web server framework         |
+| MongoDB        | Database (with collections: blogs, wishlist, comments) |
+| Firebase Admin | JWT authentication & decoding |
+| Cookie-Parser  | JWT cookie handling          |
+| CORS           | Cross-origin resource sharing |
+
+---
+
+## 🔐 Middleware
+
+- **`verifyJWT`**: Ensures requests have a valid Firebase ID token and attaches the decoded email to the request.
+- Applies to secure endpoints like `GET /wishlist/:email` and `POST /blogs`.
+
+---
+
+
+
+## 📁 API Endpoints Overview
+
+| Method | Route                     | Description                           |
+|--------|---------------------------|---------------------------------------|
+| GET    | `/blogs`                  | Get all blogs with optional filters   |
+| GET    | `/blogs/:id`              | Get a single blog by ID               |
+| POST   | `/blogs`                  | Add a new blog (JWT required)         |
+| PUT    | `/blogs/:id`              | Update a blog                         |
+| GET    | `/recentblogs`            | Get the 6 latest blogs                |
+| GET    | `/topblogs`               | Get top 10 blogs (by description size)|
+| GET    | `/wishlist/:email`        | Get user’s wishlist (JWT required)    |
+| POST   | `/wishlist/:blogId`       | Add to wishlist (prevents duplicates) |
+| DELETE | `/wishlist/:id`           | Delete wishlist item                  |
+| POST   | `/comment/:blogId`        | Add a comment to a blog               |
+| GET    | `/comment/:blogId`        | View all comments for a blog          |
+
+---
+
