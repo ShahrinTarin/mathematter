@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 import { motion } from "motion/react";
 const Banner = () => {
   return (
-    <div className="hero bg-[#EDF6EE] min-h-[calc(100vh-64px)] bg-[url(https://i.ibb.co/KcBrKWK0/rubber-blank-paper-cute-pink-education-mathematics-powerpoint-background-a6aa809926-960-540.jpg)] min-h-[calc(100vh-64px)]">
+    <div className="hero bg-[#EDF6EE] min-h-[70vh] bg-[url(https://i.ibb.co/KcBrKWK0/rubber-blank-paper-cute-pink-education-mathematics-powerpoint-background-a6aa809926-960-540.jpg)] min-h-[calc(100vh-64px)]">
       <div className="hero-content text-center">
         <div className="">
           <div className='text-center'>
