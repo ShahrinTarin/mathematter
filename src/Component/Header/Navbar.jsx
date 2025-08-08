@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import DarkModeToggler from './DarkModeToggler';
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext)
@@ -97,6 +98,7 @@ const Navbar = () => {
             </NavLink></div>
         }
       </div>
+      <div className='md:mr-2 tex-black'><DarkModeToggler></DarkModeToggler></div>
     </div>
   );
 };

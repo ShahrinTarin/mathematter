@@ -3,10 +3,13 @@ import { Outlet, useNavigation } from 'react-router';
 import Header from '../Component/Header/Header';
 import { Loader } from 'rsuite';
 import Footer from '../Component/Footer';
+import { ThemeProvider } from '../Provider/ThemeContext';
+
 
 const RootLayOut = () => {
     const { state } = useNavigation()
     return (
+             <ThemeProvider>
         <div>
             <Header></Header>
             <div className='bg-[#EDF6EE] min-h-[calc(100vh-64px)]'>
@@ -14,6 +17,7 @@ const RootLayOut = () => {
             </div>
             <Footer></Footer>
         </div>
+        </ThemeProvider>
     );
 };
 
