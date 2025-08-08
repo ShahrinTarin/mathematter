@@ -12,7 +12,7 @@ const RootLayOut = () => {
              <ThemeProvider>
         <div>
             <Header></Header>
-            <div className='bg-[#EDF6EE] min-h-[calc(100vh-64px)]'>
+            <div className='bg-[#EDF6EE] dark:bg-gray-600 min-h-[calc(100vh-64px)]'>
               {state == 'loading' ? <Loader></Loader> : <Outlet></Outlet>}
             </div>
             <Footer></Footer>
