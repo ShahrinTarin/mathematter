@@ -40,7 +40,7 @@ const AllBlogs = () => {
                     </label>
                 </div>
                 <div className='pt-12 md:flex justify-between lg:w-9/12 w-11/12  mx-auto space-y-4 '>
-                    <h1 className=" text-3xl lg:text-5xl pl:12 font-semibold text-gray-700">All <span className='text-[#1b9c85]'>blogs Here</span></h1>
+                    <h1 className=" text-3xl lg:text-5xl pl:12 font-semibold text-gray-700 dark:text-gray-400">All <span className='text-[#1b9c85]'>blogs Here</span></h1>
                     <div>
                         <select
                             name="category"

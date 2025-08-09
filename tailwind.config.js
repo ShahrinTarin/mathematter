@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -6,6 +7,6 @@ module.exports = {
   plugins: [require("daisyui")],
   daisyui: {
     themes: ["light", "dark"],
-    darkTheme: "dark", 
+    darkTheme: "dark",
   },
 };

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDarkMode } from '../../Provider/ThemeContext';
 ;
 
@@ -6,7 +5,7 @@ const DarkModeToggler = () => {
    const {darkMode,setDarkMode}=useDarkMode()
     return (
 
-        <button onClick={()=>setDarkMode(!darkMode)} className='cursor-pointer text-gray-200 dark:text-gray-200 '>
+        <button onClick={()=>setDarkMode(!darkMode)} className='cursor-pointer text-gray-200 dark:text-gray-500 '>
             {darkMode ? <svg
                 className="swap-off h-8 w-8 fill-current"
                 xmlns="http://www.w3.org/2000/svg"

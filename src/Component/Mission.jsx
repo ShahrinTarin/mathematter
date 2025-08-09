@@ -8,7 +8,7 @@ const Mission = () => {
                 <img className='h-full w-full' src="https://i.ibb.co/TDJRBv1K/math.jpg" alt="" />
             </div>
             <div className='bg-white flex-col h-full flex justify-center py-10 mb-16 pl-10 md:pl-12'>
-                <h1 className='text-4xl font-bold alegreya mb-10'>Our Blogs <span className='text-[#1b9c85]'>Mission</span></h1>
+                <h1 className='text-4xl font-bold alegreya mb-10 text-gray-600'>Our Blogs <span className='text-[#1b9c85]'>Mission</span></h1>
                 <p className='text-[#454F5E] w-3/4 mb-10'>MathMatter is dedicated to transforming mathematical learning into an engaging, accessible journey for all. Through innovative explanations, interactive problem-solving, and real-world applications, we bridge the gap between abstract theory and practical understanding. Our platform empowers students, educators, and lifelong learners to master concepts with confidence—unlocking the beauty and power of mathematics in everyday life and scientific discovery.
                 <br /><br /> Join us on a journey of mathematical discovery, where numbers unlock new worlds, equations inspire change and empowered way of thinking. At MathMatter, we make math meaningful—transforming challenges into triumphs and curiosity into mastery. Explore, learn, and grow with us!
                 </p>

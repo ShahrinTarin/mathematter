@@ -3,9 +3,9 @@ import Navbar from './Navbar';
 
 const Header = () => {
     return (
-        <div className='bg-[#EDF6EE]'>
-            <Navbar></Navbar>
-        </div>
+    <div className="bg-[#EDF6EE] dark:bg-gray-900">
+  <Navbar />
+</div>
     );
 };
 
