@@ -70,7 +70,7 @@ const Navbar = () => {
         }</li>
           </ul>
         </div>
-        <a className="md:text-3xl text-2xl font-semibold pinyon-script-regular flex justify-center items-center gap-1"><img className='h-5 w-5 md:h-8 md:w-10' src="/svg.svg" alt="" /><div className='dark:text-gray-300 text-gray-700'>Math<span className='text-[#1b9c85]'>Matter</span></div></a>
+        <a className="md:text-3xl text-2xl font-semibold pinyon-script-regular flex justify-center items-center gap-1"><img className='h-5 w-5 md:h-8 md:w-10' src="/svg.svg" alt="" /><div className=' text-gray-700 dark:text-gray-300'>Math<span className='text-[#1b9c85]'>Matter</span></div></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

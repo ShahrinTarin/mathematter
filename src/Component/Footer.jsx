@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-        <footer className="px-4 divide-y bg-[#1b9c8444] text-gray-800">
+        <footer className="px-4 divide-y bg-[#1b9c85] dark:bg-[#1b9c8444] text-gray-800 dark:text-white">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <a rel="noopener noreferrer" href="/" className="flex justify-center space-x-3 lg:justify-start">
@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase text-gray-900">Company</h3>
+                        <h3 className="tracking-wide uppercase text-gray-900 dark:text-white">Company</h3>
                         <ul className="space-y-1">
                             <li>
                                 <a rel="noopener noreferrer" href="#">Privacy</a>
@@ -27,7 +27,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="uppercase  text-gray-900">Developers</h3>
+                        <h3 className="uppercase  text-gray-900 dark:text-white">Developers</h3>
                         <ul className="space-y-1">
                             <li>
                                 <a rel="noopener noreferrer" href="#">Public API</a>
@@ -41,9 +41,9 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-2">
-                        <div className="uppercase  text-gray-900">Contact Info :</div>
+                        <div className="uppercase  text-gray-900 dark:text-white">Contact Info :</div>
                         <a href='https://mail.google.com' className='flex cursor-pointer gap-1 text-sm items-center'><MdAttachEmail size={20} />rahmanshahrintarin@gmail.com</a>
-                        <div className="uppercase text-gray-900">Social Media</div>
+                        <div className="uppercase text-gray-900 dark:text-white">Social Media</div>
                         <div className="flex justify-start space-x-3">
                             <a rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61570044629513" title="Facebook" className="flex items-center p-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 32 32" className="w-5 h-5 fill-current">
@@ -64,7 +64,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-center pinyon-script-regular">© <span className='text-[#1b9c85]'>Math</span>Matter All rights reserved. <br />
+            <div className="py-6 text-sm text-gray-600 dark:text-white text-center pinyon-script-regular">© <span className='text-[#1b9c85]'>Math</span>Matter All rights reserved. <br />
                 ©  Design & Developed by <Link to='https://github.com/ShahrinTarin' className='text-[#1b9c85]'> ShahrinTarin </Link>
             </div>
         </footer>
