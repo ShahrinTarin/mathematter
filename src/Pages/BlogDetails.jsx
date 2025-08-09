@@ -82,7 +82,7 @@ const BlogDetails = () => {
   const displayText = getTruncatedDescription(blog.long_description);
 
   return (
-    <div className="min-h-[calc(100vh-64px)] pb-12 flex flex-col items-center justify-center bg-[#EDF6EE]  dark:bg-gray-900 transition-colors duration-500">
+    <div className="min-h-[calc(100vh-64px)] pb-12 flex flex-col items-center justify-center bg-white dark:bg-gray-900 transition-colors duration-500">
       <div className="lg:p-10 p-6 w-full max-w-5xl">
         <article className="flex flex-col space-y-6 rounded-lg shadow-md p-6 bg-gray-50 dark:bg-gray-800 dark:text-gray-100">
           {/* Blog Header */}

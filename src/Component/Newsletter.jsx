@@ -61,12 +61,20 @@ const Newsletter = () => {
             onSubmit={handleSubscribe}
             className="join px-3 gap-2 lg:gap-5 md:mt-10 mt:8"
           >
-            <input
-              required
-              type="email"
-              className="input join-item rounded-full bg-transparent dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 backdrop-blur-2xl w-full md:px-8 py-6 md:py-8 textarea-lg md:text-xl border border-gray-300 dark:border-gray-600"
-              placeholder="Enter Your Email"
-            />
+           <input
+  required
+  type="email"
+  className="
+    input join-item rounded-full 
+    bg-white text-gray-900 placeholder-gray-500
+    dark:bg-gray-800 dark:text-white dark:placeholder-gray-400
+    w-full md:px-8 py-6 md:py-8 textarea-lg md:text-xl 
+    border border-gray-300 dark:border-gray-600
+    focus:outline-none focus:ring-2 focus:ring-[#1b9c85]
+    transition-colors duration-300
+  "
+  placeholder="Enter your email"
+/>
             <button
               className="btn join-item rounded-full py-6 md:py-8 bg-[#1b9c85] text-gray-100 dark:text-gray-900 border-none px-4 md:px-6 text-lg lg:text-2xl hover:opacity-90"
             >
