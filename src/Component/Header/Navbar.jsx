@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router"; 
+import { NavLink } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import DarkModeToggler from "./DarkModeToggler";
@@ -18,7 +18,7 @@ const Navbar = () => {
           timer: 1500,
         });
       })
-      .catch(() => {});
+      .catch(() => { });
   };
 
   const linkClasses = ({ isActive }) =>
@@ -31,10 +31,11 @@ const Navbar = () => {
   const links = (
     <>
       <li><NavLink className={linkClasses} to="/">Home</NavLink></li>
-      <li><NavLink className={linkClasses} to="/addblog">Add Blog</NavLink></li>
       <li><NavLink className={linkClasses} to="/allblogs">All Blogs</NavLink></li>
       <li><NavLink className={linkClasses} to="/featuredblogs">Featured Blogs</NavLink></li>
-      {user?<li><NavLink className={linkClasses} to="/wishlist">Wishlist</NavLink></li>:''}
+      {user ? <><li><NavLink className={linkClasses} to="/wishlist">Wishlist</NavLink></li>
+        <li><NavLink className={linkClasses} to="/addblog">Add Blog</NavLink></li>
+      </> : ''}
     </>
   );
 
@@ -50,12 +51,17 @@ const Navbar = () => {
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 stroke-gray-700 dark:stroke-gray-200"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
           </div>
           <ul
