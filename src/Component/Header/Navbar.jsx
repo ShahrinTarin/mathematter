@@ -42,7 +42,7 @@ const Navbar = () => {
     "relative rounded px-5 py-2.5 overflow-hidden group bg-[#1b9c85] hover:bg-gradient-to-r hover:from-[#1b9c85] hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 dark:ring-offset-gray-900";
 
   return (
-    <div className="navbar w-11/12 mx-auto p-0">
+    <div className="navbar w-11/12 mx-auto p-0 sticky top-0 z-50 ">
       {/* Left Section */}
       <div className="navbar-start">
         {/* Mobile Dropdown */}
