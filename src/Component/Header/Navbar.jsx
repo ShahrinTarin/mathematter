@@ -34,7 +34,7 @@ const Navbar = () => {
       <li><NavLink className={linkClasses} to="/addblog">Add Blog</NavLink></li>
       <li><NavLink className={linkClasses} to="/allblogs">All Blogs</NavLink></li>
       <li><NavLink className={linkClasses} to="/featuredblogs">Featured Blogs</NavLink></li>
-      <li><NavLink className={linkClasses} to="/wishlist">Wishlist</NavLink></li>
+      {user?<li><NavLink className={linkClasses} to="/wishlist">Wishlist</NavLink></li>:''}
     </>
   );
 
