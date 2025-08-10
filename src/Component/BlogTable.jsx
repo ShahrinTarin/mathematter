@@ -95,7 +95,7 @@ const BlogTable = () => {
     }
 
     return (
-        <div className="p-4 bg-white dark:bg-gray-900 mb-16 rounded-lg shadow">
+        <div className="p-4 bg-white dark:bg-gray-900 pb-16 rounded-lg shadow">
             <h2 className="text-3xl font-bold text-center text-gray-700 dark:text-gray-200 mt-5 mb-9">
                 Top 10 Blogs
             </h2>
