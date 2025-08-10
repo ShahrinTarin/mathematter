@@ -64,8 +64,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-6 text-sm text-gray-600 dark:text-white text-center pinyon-script-regular">© <span className='text-[#1b9c85]'>Math</span>Matter All rights reserved. <br />
-                ©  Design & Developed by <Link to='https://github.com/ShahrinTarin' className='text-[#1b9c85]'> ShahrinTarin </Link>
+            <div className="py-6 text-sm text-gray-600 dark:text-white text-center pinyon-script-regular">© <span className='dark:text-[#1b9c85] text-gray-200'>Math</span>Matter All rights reserved. <br />
+                ©  Design & Developed by <Link to='https://github.com/ShahrinTarin' className='dark:text-[#1b9c85] text-gray-200'> ShahrinTarin </Link>
             </div>
         </footer>
     );
