@@ -60,9 +60,12 @@ const AllBlogs = () => {
                             name="category"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="w-full bg-[#EDF6EE] p-2.5 px-5 rounded input text-gray-800 appearance-none md:pr-8"
+                            className="w-full p-2.5 px-5 rounded appearance-none md:pr-8 border  dark:border-gray-600 
+             bg-[#EDF6EE] text-gray-800 dark:bg-gray-900 dark:text-white"
                             style={{
-                                backgroundImage: `url("data:image/svg+xml;utf8,<svg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
+                                backgroundImage: `url("data:image/svg+xml;utf8,<svg 
+      height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'>
+      <path fill='%23333333' d='M7 10l5 5 5-5z'/></svg>")`,
                                 backgroundRepeat: 'no-repeat',
                                 backgroundPosition: 'right 10px center',
                             }}
@@ -74,6 +77,8 @@ const AllBlogs = () => {
                             <option value="Astronomy">Astronomy</option>
                             <option value="Statistics">Statistics</option>
                         </select>
+
+
                     </div>
                 </div>
                 <div className='grid grid-cols-1 p-12 lg:grid-cols-4 md:grid-cols-2 gap-4 gap-y-12 lg:w-9/12 w-11/12 mx-auto'>
