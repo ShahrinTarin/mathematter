@@ -6,7 +6,7 @@ const ExtraSection = () => {
         <div>
             <div className='mx-auto w-11/12 rounded-2xl py-10 lg:py-20 mt-12 mb-36 text-center bg-white'>
                 <h1 className="text-5xl font-medium mb-5 text-gray-700">Explore Our Blogs</h1>
-                <div className='grid md:grid-cols-3 lg:grid-cols-5 max-w-7/12 mx-auto flex justify-center gap-6 mt-8'>
+                <div className='grid md:grid-cols-3 lg:grid-cols-5 max-w-7/12 mx-auto justify-center gap-6 mt-8'>
                     <div className='bg-[#EDF6EE] p-6 rounded-lg '>
                         <div className='flex justify-center mb-2'>
                             <svg
